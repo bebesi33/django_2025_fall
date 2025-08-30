@@ -1,0 +1,1 @@
+python -m voila lecture_00_slides.ipynb  --template=reveal
