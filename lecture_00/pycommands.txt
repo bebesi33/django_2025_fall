@@ -1,0 +1,25 @@
+D:\programming\Python\python.exe -m venv l_00_env
+python -m venv l_00_env
+
+
+Environment aktiválás...
+& D:\programming\WebProg2025Fall\drafts\l_00_env\Scripts\Activate.ps1
+
+# az elérhető package-ek listázása az environment-en belül
+python -m pip list
+
+
+# Django installáció
+python -m pip install django
+python -m pip install django=="3r2432r32r323"
+python -m pip install django=="5.2.5"  // downgrade from django 5.2.6
+python -m pip install django --upgrage  // vissza 5.2.6-ra
+
+# Requirements.txt használata
+python -m pip install -r requirements.txt
+
+python -m pip freeze > requirements_mac.txt
+
+python -m django startproject my_project
+cd my_project
+python manage.py runserver
