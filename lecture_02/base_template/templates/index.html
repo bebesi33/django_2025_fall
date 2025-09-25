@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Hello!</h1>
+<br>N&Eacute;V: {{name|truncatewords:1}}</br>
+<br>Neptun: {{neptun|lower}}</br>
+{{now2}}
+It is {% now "jS F Y H:i" %}
+
+<a href="{% url 'schedule' %}">Órarend</a>
+<a href="{% url 'contact' %}">Contact</a>
+{% endblock %}
