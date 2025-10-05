@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block head_content %}
+{% load static %}
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<link rel="stylesheet" type="text/css" href="{% static 'css/contact_v2.css' %}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="headline">
+        <h1>Animated Social Media Icons</h1>
+    </div>
+    <div class="social-buttons">
+        <!-- facebook  Button -->
+        <a href="http://www.facebook.com" target="blank" class="social-margin">
+            <div class="social-icon facebook">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- pinterest Button -->
+        <a href="https://pinterest.com/" target="blank" class="social-margin">
+            <div class="social-icon pinterest">
+                <i class="fa fa-pinterest-p" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- LinkedIn Button -->
+        <a href="http://linkedin.com/" class="social-margin" target="blank">
+            <div class="social-icon linkedin">
+                <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- Github Button -->
+        <a href="https://github.com/" target="blank" class="social-margin">
+            <div class="social-icon github">
+                <i class="fa fa-github-alt" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- Youtube Button -->
+        <a href="http://youtube.com/" target="blank" class="social-margin">
+            <div class="social-icon youtube">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- Behance Button -->
+        <a href="https://behance.com/" target="blank" class="social-margin">
+            <div class="social-icon behance">
+                <i class="fa fa-behance" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- Soundcloud Button -->
+        <a href="http://soundcloud.com/" target="blank" class="social-margin">
+            <div class="social-icon soundcloud">
+                <i class="fa fa-soundcloud" aria-hidden="true"></i>
+            </div>
+        </a>
+        <!-- TwitterButton -->
+        <a href="http://twitter.com/" target="blank" class="social-margin">
+            <div class="social-icon twitter">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </div>
+        </a>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- forrás: https://codepen.io/16sidsharma10/pen/jOPWxZL -->

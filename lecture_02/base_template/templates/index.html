@@ -1,10 +1,16 @@
 {% extends 'base.html' %}
-
+{% load custom_tags %}
 {% block content %}
 <h1>Hello!</h1>
 <br>N&Eacute;V: {{name|truncatewords:1}}</br>
+<br>N&Eacute;V: {{name|truncatechars:10}}</br>
+<br>N&Eacute;V: {{name|upper}}</br>
+<br>N&Eacute;V: {{name|choose_every_third}}</br>
+<!-- https://docs.djangoproject.com/en/5.2/ref/templates/builtins/ -->
+
 <br>Neptun: {{neptun|lower}}</br>
-{{now2}}
+
+
 It is {% now "jS F Y H:i" %}
 
 <a href="{% url 'schedule' %}">Órarend</a>

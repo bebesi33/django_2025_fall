@@ -17,6 +17,8 @@ def index(request):
 def contact(request):
     return render(request, "contact.html")
 
+def contact_v2(request):
+    return render(request, "contact_v2.html")
 
 def schedule(request):
     return render(request, "schedule.html")
