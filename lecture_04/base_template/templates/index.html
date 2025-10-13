@@ -4,6 +4,13 @@
 <h1>Hello!</h1>
 <br>Ez egy kis Django Project a Django ORM bemutatására...</br>
 
+<ul>
+    {% for friend in friends %}
+    <li>{{friend.name }} - {{friend.phone}}</li>
+    {% empty %}
+    <li>Nincs barátod idk...</li>
+    {% endfor %}
+</ul>
 
 It is {% now "jS F Y H:i" %}
 

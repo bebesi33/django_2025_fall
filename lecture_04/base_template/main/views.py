@@ -1,16 +1,15 @@
 from django.shortcuts import render
 import logging
 from datetime import datetime
+from main.models import Friend
 
 logger = logging.getLogger(__name__)
 
 
 def index(request):
     index_context = dict()
-    index_context["name"] = "Bebesi Laszlo"
-    index_context["neptun"] = "DFFKZ4"
-    index_context["now2"] = datetime.now
-    logger.warning(datetime.now())
+    friends = Friend.objects.all()
+    index_context["friends"] = friends
     return render(request, "index.html", index_context)
 
 
