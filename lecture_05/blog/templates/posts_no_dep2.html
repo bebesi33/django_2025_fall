@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Blog bejegyzések</h2>
+
+<!-- Szűrő űrlap -->
+<!-- <form method="get">
+    <input type="text" name="title" placeholder="Keresés cím alapján" value="{{ title_query }}">
+    <input type="submit" value="Szűrés">
+</form> -->
+
+
+<form method="get" class="row g-2 mb-5">
+    <div class="col-auto">
+        <input type="text" name="title" class="form-control" placeholder="Keresés cím alapján"
+            value="{{ title_query2 }}">
+    </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Szűrés2</button>
+    </div>
+</form>
+
+<!-- Táblázat -->
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cím</th>
+            <th>Tartalom</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for post in page_obj %}
+        <tr>
+            <td>{{ post.title }}</td>
+            <td>{{ post.content|truncatewords:20 }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="2">Nincs találat.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<!-- Lapozás -->
+<!-- <div class="pagination">
+    {% if page_obj.has_previous %}
+    <a href="?title={{ title_query }}&page={{ page_obj.previous_page_number }}">Előző</a>
+    {% endif %}
+
+    <span>Oldal {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span>
+
+    {% if page_obj.has_next %}
+    <a href="?title={{ title_query }}&page={{ page_obj.next_page_number }}">Következő</a>
+    {% endif %}
+</div> -->
+<!-- https://getbootstrap.com/docs/4.0/components/pagination/ -->
+<nav aria-label="Oldal navigáció">
+    <ul class="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?title={{ title_query }}&page={{ page_obj.previous_page_number }}">Előző</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Előző</span>
+        </li>
+        {% endif %}
+
+        {% for num in page_obj.paginator.page_range %}
+        {% if page_obj.number == num %}
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">{{ num }}</span>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="?title={{ title_query }}&page={{ num }}">{{ num }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?title={{ title_query }}&page={{ page_obj.next_page_number }}">Következő</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <span class="page-link">Következő</span>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}
