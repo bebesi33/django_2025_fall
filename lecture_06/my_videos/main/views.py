@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 import logging
 
 from django_tables2 import RequestConfig
 
+from main.forms import VideoForm
 from main.filters import VideoFilter
 from main.models import Video
 from main.tables import VideoTable
@@ -27,4 +28,17 @@ def show_videos(request):
     blog_table = VideoTable(blog_filter.qs)
     RequestConfig(request, paginate={"per_page": 5}).configure(blog_table)
     # erre itt találtok példákat: https://django-tables2.readthedocs.io/en/latest/pages/pagination.html
-    return render(request, "video_view.html", {"table": blog_table, "filter": blog_filter})
+    return render(
+        request, "video_view.html", {"table": blog_table, "filter": blog_filter}
+    )
+
+
+def add_video(request):
+    if request.method == "POST":
+        form = VideoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("videos")
+    else:
+        form = VideoForm()
+    return render(request, "add_video.html", {"form": form})
