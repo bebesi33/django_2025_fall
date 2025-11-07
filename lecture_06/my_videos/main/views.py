@@ -1,12 +1,14 @@
 from django.shortcuts import redirect, render
 import logging
 
+from django.urls import reverse_lazy
 from django_tables2 import RequestConfig
 
 from main.forms import VideoForm
 from main.filters import VideoFilter
 from main.models import Video
 from main.tables import VideoTable
+from django.views.generic.edit import CreateView
 
 logger = logging.getLogger(__name__)
 
@@ -36,9 +38,19 @@ def show_videos(request):
 def add_video(request):
     if request.method == "POST":
         form = VideoForm(request.POST)
+        print(f"Form status: {form.is_bound}")
         if form.is_valid():
             form.save()
             return redirect("videos")
+        else:
+            print(f"Form errors: {form.errors}")
     else:
         form = VideoForm()
     return render(request, "add_video.html", {"form": form})
+
+
+class VideoCreateView(CreateView):
+    model = Video
+    form_class = VideoForm
+    template_name = "add_video.html"
+    succes_url = reverse_lazy("videos")
