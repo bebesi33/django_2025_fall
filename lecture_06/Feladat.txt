@@ -1,0 +1,21 @@
+Hozzanak létre egy Django projektet (virtuális környezetben), hasznos YouTube
+videóra mutató linkek tárolására. A youtube videókról tároljuk az sqlite3
+adatbázisban a linken kívül a rövid leírásukat, azaz címüket.
+(d) Hozzunk létre egy modelt! Adjunk hozzá néhány adatot.
+(e) Készítsünk menüt és láblécet is. (oldalsó menü a megvalósított
+funkciókkal).
+(f) Lehessen törölni, módosítani és beszúrni adatokat.
+
+
+-> Lehet indulni a 0-ról saját projet-el vagy használni ezt:
+https://github.com/bebesi33/django_2025_fall/tree/main/lecture_06/my_videos
+
+-> Feladatok (ahhoz hogy az F ponthoz eljussunk)
+
+ 	Adat feltöltés: Superuser -> admin felület -> új rekordok megadása -> check hogy működik-e a video view
+ 	Új Form készítése (create és update-hez):
+ 		-> Ne lehessen ugyanazt az urlt és title-t megadni
+ 		-> A title legyen 5 charnál hosszabb
+ 		-> legyen valami URL validáció
+ 	Template készítés az update-hez
+ 	View-k definiálása - function based egyenlőre, később class based
