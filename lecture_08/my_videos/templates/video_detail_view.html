@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load form_tags %}
+
+<div class="container mt-4">
+  <div class="row">
+    <!-- Bal oszlop: form -->
+     <!-- Ez lenne a bootstrap grid rendszere, két oszloppal.
+     A -md-6 része azt jelenti:
+      md = „medium” breakpoint (≥768px képernyőszélesség)
+      6 = az oszlop a 12 egységből 6-ot foglal el -->
+
+    <div class="col-md-5">
+      <form method="post" action="{% url 'video_detail' video.id %}" class="w-75">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-warning mb-2">Edit</button>
+      </form>
+      <form method="post" action="{% url 'video_delete' video.id %}" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+    </div>
+
+    <div class="col-md-7">
+
+    </div>
+  </div>
+</div>
+{% endblock %}
