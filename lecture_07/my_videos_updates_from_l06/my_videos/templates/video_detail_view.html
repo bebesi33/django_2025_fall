@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form method="post" action="{% url 'video_detail' video.id %}" class="w-50">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Módosítás</button>
+</form>
+{% endblock %}
