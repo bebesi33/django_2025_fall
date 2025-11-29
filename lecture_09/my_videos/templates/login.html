@@ -1,0 +1,14 @@
+<form method="POST" action="{% url 'sign_in' %}">
+    {% csrf_token %}
+    <h6 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h6>
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="text" id="login-form-usernam" class="form-control" name="username" required/>
+        <label class="form-label" for="login-form-username">UserName</label>
+    </div>
+
+    <div data-mdb-input-init class="form-outline mb-4">
+        <input type="password" id="login-form-pwd" class="form-control" name="password" required/>
+        <label class="form-label" for="login-form-pwd">Password</label>
+    </div>
+    <input type="submit" class="btn btn-dark" value="Sing in">
+</form>

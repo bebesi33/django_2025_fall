@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}" />
+    {% bootstrap_css %}
+    {% block head_content %}{% endblock %}
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+
+    <div class="page-content">
+        <div id="login-panel">
+            {% if user.is_authenticated %}
+            {% include 'logout.html' %}
+            {% else %}
+            {% include 'login.html' %}
+            {% endif %}
+            <div id="message-block">
+                {% include 'messages.html' %}
+            </div>
+        </div>
+        <div id="content-panel">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer id="page-footer" class="bg-light text-center py-3">
+        Author: Bebesi, 2025, Email: <a href="mailto:????@!!!!.com">???@!!!!.com</a>
+    </footer>
+    {% bootstrap_javascript %}
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load form_tags %}
+
+<form method="post" action="{% url 'video_detail' video.id %}" class="w-50">
+  {% csrf_token %}
+  <!-- {% for field in form %}
+  <div class="form-group">
+    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+    {{ field|add_class:'form-control' }}
+    {% if field.help_text %}
+    <small>{{ field.help_text }}</small>
+    {% endif %}
+  </div>
+  {% endfor %} -->
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-warning mb-2">Edit</button>
+</form>
+<form method="post" action="{% url 'video_delete' video.id %}" style="display:inline;">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Delete</button>
+</form>
+
+
+<h2>{{ video.title }}</h2>
+<div class="video-container">
+</div>
+{% endblock %}

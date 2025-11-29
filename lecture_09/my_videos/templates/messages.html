@@ -1,0 +1,7 @@
+{% if messages %}
+{% for message in messages %}
+{% if "login" in message.tags %}
+<div class="alert alert-{{ message.level_tag }}">{{ message }}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
