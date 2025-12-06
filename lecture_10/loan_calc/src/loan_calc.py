@@ -83,7 +83,7 @@ def calculate_annuity_cashflow_decomposition(
     return pd.DataFrame(
         {
             "time_period": time_periods,
-            "insterest_cf": interest_cf,
+            "interest_cf": interest_cf,
             "principal_cf": principal_cf,
         }
     )
