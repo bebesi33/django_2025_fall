@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load form_tags %}
+
+{% block content %}
+<!-- <h4>Form WITH Django form utilities...</h4>
+<form method="post" action="{% url 'add_video' %}" class="w-50">
+    {% csrf_token %}
+    {% for field in form %}
+    <div class="form-group">
+        <label for="{{ field.id_for_label }}" class="form-label">{{ field.label }}</label>
+        {{ field|add_class:'form-control' }}
+        {% if field.help_text %}
+        <small>{{ field.help_text }}</small>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% if message %}
+<h4>{{ message }}</h4>
+{% endif %} -->
+
+<!-- Van a fenti verzió ami itt állítja be dinamikusan a form-control osztályt: -->
+<!-- és van egy másik megoldás widgettel -->
+<form method="post" class="w-50" action="" >
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Mentés</button>
+</form>
+{% endblock %}
+
+<!-- az action="" azt jelenti, hogy a form mindig arra az URL-re küldi vissza a POST-ot, 
+ahol épp meg van nyitva — így ugyanaz a template működik FBV-hez és CBV-hez is. -->

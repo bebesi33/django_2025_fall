@@ -1,0 +1,81 @@
+Kis segítség a line és branch coverage-hez.
+
+Ezt már csak akkor vesszük elő, ha valamennyi teszt már létezik
+
+0. lépés
+pip install coverage
+és a terminálon álljunk abba a mappába amiben az /src és a /tests található
+
+1. lépés line coverage
+python -m coverage run --source=. -m pytest
+python -m coverage report -m
+
+2. lépés branch coverage
+python -m coverage run --branch --source=. -m pytest
+python -m coverage report -m
+
+3. lépés
+python -m coverage html
+-> lesz egy htmlcov folder benne egy index.html-el, na az nyissuk meg
+
+Line coverage:
+Stmts: összes sor
+Miss: lefutás nélkül maradt sor
+Cover: line coverage százalék
+Missing: hiányzó sorok
+
+Egyebek
+Lehet csinálni egy .coveragerc file-t ilyen tartalommal:
+
+[run]
+source = .
+omit =
+    tests/*
+
+Ez azért jó mert alapjáraton a coverage-t kiszámolja ez a cucc a teszt folderre is...
+
+Django:
+0. telepítve vagyon a coverage package…
+
+1. lépés check coverage
+python -m coverage run manage.py test
+
+vagy
+python -m coverage run --source='.' manage.py test
+python -m coverage run --branch --source='.' manage.py test
+
+
+2. report (terminal)
+python -m coverage report
+
+3. lépés html is
+python -m coverage html
+
+
+
+4. struktúra:
+
+Ez a tests inside the package struktúra lenne.
+Vagy van egy dedikált tests.py az appon belül, vagy pedig egy tests package (folder van)
+myproject/
+    main/
+        models.py
+        views.py
+        forms.py
+        filters.py
+        tables.py
+        ...
+        tests/
+            __init__.py
+            test_views.py
+            test_models.py
+            test_forms.py
+            test_filters.py
+            test_urls.py
+            test_templates.py
+
+     users/
+	models.py
+	....
+	tests.py
+

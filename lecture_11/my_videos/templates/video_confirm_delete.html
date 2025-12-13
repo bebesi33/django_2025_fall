@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Biztosan törölni szeretnéd: "{{ video.title }}"?</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Igen, töröld</button>
+    <a href="{% url 'videos' %}" class="btn btn-secondary">Mégse</a>
+</form>
+{% endblock %}
