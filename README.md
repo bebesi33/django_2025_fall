@@ -1,7 +1,7 @@
-## Webprogramming with Django - 2025/2026 1th Semester
+## Web programming with Django - 2025/2026 1st Semester
 
 
-This course covers the basics of Django web-programming.
+This course covers the basics of Django web programming.
 
 <h4>Content</h4>
 <ul>
